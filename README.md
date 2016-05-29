@@ -2,7 +2,8 @@
 
 起因
 ====
-	装gentoo时不小心装成32位系统，安装chrome-binary-plugins时发现只提供了amd64的包，所以要手动安装i386包
+	chromium 要播放flash
+	装gentoo时装成32位系统，安装chrome-binary-plugins时发现只提供了amd64的包，所以要手动安装i386包
 	以下是我在gentoo上的操作,其它系统也可以使用，另外firefox也可以用只是配置和so动态库存放的位置不同
 
 flash安装参考
@@ -21,7 +22,8 @@ flash安装参考
 	wget https://aur.archlinux.org/cgit/aur.git/snapshot/chromium-pepper-flash.tar.gz
 	tar zxf chromium-pepper-flash.tar.gz
 	cd chromium-pepper-flash
-	more PKGBUILD 找到下载地址
+	# 找到下载地址
+	more PKGBUILD 
 
 	mkdir tmp
 	cd tmp
@@ -29,14 +31,15 @@ flash安装参考
 
 获取amd64包
 ====
-	emerge -av chrome-binary-plugins 报错,因为我的不是amd的cpu
+	emerge -av chrome-binary-plugins 
+	# 报错,因为我的不是amd的cpu
 	more /var/tmp/portage/www-plugins/chrome-binary-plugins-51.0.2704.63/temp/environment
 
 	mkdir tmp3
 	cd tmp3/
 	wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_51.0.2704.63-1_amd64.deb
 
-rmp 包解压
+rpm 包解压
 ====
 	rpm2tar google-chrome-stable-51.0.2704.63-1.x86_64.rpm
 	tar xf google-chrome-stable-51.0.2704.63-1.x86_64.tar
